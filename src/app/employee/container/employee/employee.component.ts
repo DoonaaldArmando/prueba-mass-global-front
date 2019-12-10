@@ -10,7 +10,7 @@ import { Employee } from '../../models/employee';
 })
 export class EmployeeComponent implements OnInit {
 
-  private employee$: Observable<Employee>;
+  private employee$: Observable<Employee[]> | Observable<Employee>;
   constructor(private employee: EmployeeService) { }
 
   ngOnInit() {

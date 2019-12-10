@@ -1,8 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Employee } from '../../models/employee';
-import { MatTableDataSource } from '@angular/material';
-
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { EmployeeService } from '../../service/employee.service';
 
 
 
@@ -13,22 +10,22 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class TableDataComponent implements OnInit {
 
+  constructor(private changeDetectorRefs: ChangeDetectorRef, private employee: EmployeeService) { }
+
   displayedColumns: string[] = ['id', 'name', 'contractTypeName', 'roleName', 'roleDescription', 'hourlySalary', 'monthlySalary', 'annualSalary'];
-  _datasource: Employee[];
+
+  private _datasource: any;
+
   @Input()
   set datasource$(datasource: any) {
     if (datasource != null && datasource != undefined) {
       this._datasource = datasource;
-      console.log(datasource, this._datasource)
+      console.log(datasource, this._datasource);
+      this.changeDetectorRefs.detectChanges();
     }
   }
 
-
-
-  constructor() { }
-
   ngOnInit() {
-
   }
 
 }
