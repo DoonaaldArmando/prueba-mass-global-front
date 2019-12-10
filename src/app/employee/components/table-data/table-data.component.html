@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="_datasource" class="mat-elevation-z8">
+<table mat-table [dataSource]="_datasource" *ngIf="_datasource.length > 0">
 
     <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> No. </th>

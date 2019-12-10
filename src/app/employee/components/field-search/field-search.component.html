@@ -1,9 +1,8 @@
 <mat-form-field appearance="outline">
-    <mat-label>Id Employye</mat-label>
+    <mat-label>Id Employee</mat-label>
     <input matInput type="number" placeholder="Id Employee" [(ngModel)]="_id">
     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>Digit id of employee</mat-hint>
 </mat-form-field>
 
-<div class="example-button-row">
-    <button mat-raised-button color="primary" (click)="captureIdInput()">Primary</button>
-</div>
+<button mat-fab color="primary" (click)="captureIdInput()">Buscar</button>

@@ -16,6 +16,9 @@ import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { EmployeeService } from './service/employee.service';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+
 
 
 
@@ -31,7 +34,9 @@ import { EmployeeService } from './service/employee.service';
     MatButtonModule,
     FormsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatGridListModule,
+    MatCardModule
   ],
   providers: [EmployeeService]
 })
