@@ -16,7 +16,6 @@ export class FieldSearchComponent implements OnInit {
   }
 
   public captureIdInput(): void {
-    console.log(this._id);
     this.messageWithId.emit(this._id);
   }
 

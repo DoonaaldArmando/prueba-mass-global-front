@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { EmployeeService } from '../../service/employee.service';
+import { ɵEmptyOutletComponent } from '@angular/router';
+import { Employee } from '../../models/employee';
 
 
 
@@ -19,9 +21,14 @@ export class TableDataComponent implements OnInit {
   @Input()
   set datasource$(datasource: any) {
     if (datasource != null && datasource != undefined) {
-      this._datasource = datasource;
-      console.log(datasource, this._datasource);
-      this.changeDetectorRefs.detectChanges();
+
+      if (Array.isArray(datasource)) {
+        this._datasource = datasource;
+        this.changeDetectorRefs.detectChanges();
+      } else {
+        this._datasource = new Array<Employee[]>(datasource);
+        this.changeDetectorRefs.detectChanges();
+      }
     }
   }
 
